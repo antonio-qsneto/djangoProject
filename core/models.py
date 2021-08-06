@@ -69,3 +69,10 @@ class MovMensalista(models.Model):
 
     def __str__(self):
         return "{}: {} - {}".format(self.mensalista, self.data_pag, self.total)
+
+class VagaReservada(models.Model):
+    pessoa = models.ForeignKey(Mensalista, on_delete=models.PROTECT)
+    veiculo = models.ForeignKey(Veiculo, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return "{} - {}".format(self.pessoa, self.veiculo)
