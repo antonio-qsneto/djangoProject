@@ -1,6 +1,6 @@
 from django.db import models
 from django.db.models.base import Model
-from django.db.models.fields import CharField
+from django.db.models.fields import CharField, DateField
 import math
 
 class Pessoa(models.Model):
@@ -54,3 +54,18 @@ class movRotativo(models.Model):
     def __str__(self):
         return self.veiculo.placa
 
+class Mensalista(models.Model):
+    veiculo = models.ForeignKey(Veiculo, on_delete=models.PROTECT)
+    inicio = models.DateField()
+    valor_mensa = models.DecimalField(max_digits=12, decimal_places=2)
+
+    def __str__(self):
+        return "{} - {} {}".format(self.veiculo.proprietario, self.veiculo, self.inicio)
+
+class MovMensalista(models.Model):
+    mensalista = models.ForeignKey(Mensalista, on_delete=models.PROTECT)
+    data_pag = models.DateField()
+    total = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return "{}: {} - {}".format(self.mensalista, self.data_pag, self.total)
