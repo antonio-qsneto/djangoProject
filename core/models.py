@@ -70,6 +70,7 @@ class MovMensalista(models.Model):
     def __str__(self):
         return "{}: {} - {}".format(self.mensalista, self.data_pag, self.total)
 
+    "VagaReserta created to build list to mensal users"
 class VagaReservada(models.Model):
     pessoa = models.ForeignKey(Mensalista, on_delete=models.PROTECT)
     veiculo = models.ForeignKey(Veiculo, on_delete=models.PROTECT)
