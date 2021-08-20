@@ -1,17 +1,16 @@
 <h2>Lista Pessoas</h2>
 
-
 <ul>
-{% for pessoa in pessoas %}
-    <li> {{ pessoa.nome }} </li>
-{% endfor %}
+  {% for pessoa in pessoas %}
+  <li>
+    {{ pessoa.nome }}
+    <a href="{% url 'core_pessoa_delete' pessoa.id %}">Deletar</a>
+  </li>
+  {% endfor %}
 </ul>
 
-
 <form action="{% url 'core_pessoas_novo' %}" method="POST">
-    {% csrf_token %}
+  {% csrf_token %} {{ form.as_p }}
 
-    {{ form.as_p }}
-
-    <button type="submit">Cadastrar</button>
+  <button type="submit">Cadastrar</button>
 </form>
