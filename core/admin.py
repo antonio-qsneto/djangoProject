@@ -19,3 +19,6 @@ admin.site.register(Mensalista)
 admin.site.register(VagaReservada)
 admin.site.register(MovMensalista, MovMensalistaAdm)
 admin.site.register(MovRotativo, MovRotativoAdm)
+
+admin.site.site_header = 'Gerencia de Estacionamento'
+admin.site.site_title = 'Administração Geral'
