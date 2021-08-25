@@ -1,19 +1,35 @@
-{% extends "base.html" %} {% block main %}
+{% extends "base.html" %} {% block main %} {% load bootstrap %}
 
-<h2>Lista Pessoas</h2>
+<div class="row">
+  <div class="col-12">
+    <h2>Lista Pessoas</h2>
+  </div>
+</div>
 
-<ul>
-  {% for pessoa in pessoas %}
-  <li>
-    {{ pessoa.nome }}
-    <a href="{% url 'core_pessoa_delete' pessoa.id %}">Deletar</a>
-  </li>
-  {% endfor %}
-</ul>
+<div class="row">
+  <div class="col-sm-6">
+    <form action="{% url 'core_pessoas_novo' %}" method="POST">
+      {% csrf_token %} {{ form|bootstrap_horizontal }}
 
-<form action="{% url 'core_pessoas_novo' %}" method="POST">
-  {% csrf_token %} {{ form.as_p }}
+      <button class="btn btn-primary" type="submit">Cadastrar</button>
+    </form>
+  </div>
 
-  <button type="submit">Cadastrar</button>
-</form>
+  <div class="col-sm-6">
+    <ul>
+      {% for pessoa in pessoas %}
+      <li>
+        {{ pessoa.nome }}
+
+        <a
+          href="{% url 'core_pessoa_delete' pessoa.id %}"
+          class="btn btn-danger"
+          >Deletar</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
 {% endblock main %}

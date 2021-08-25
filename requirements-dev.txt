@@ -10,3 +10,4 @@ sqlparse==0.4.1
 static3==0.7.0
 toml==0.10.2
 django_admin_interface
+django-bootstrap-form
