@@ -6,7 +6,7 @@
     <form action="{% url 'core_veiculo_novo' %}" method="POST">
       {% csrf_token %} {{ form|bootstrap }}
 
-      <button type="submit">Cadastrar</button>
+      <button class="btn btn-primary" type="submit">Cadastrar</button>
     </form>
   </div>
 
