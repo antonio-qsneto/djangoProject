@@ -1,3 +1,42 @@
+{% extends "base.html" %} {% load bootstrap %}
+
+
+{% block menu %} 
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" href="{% url "core_home" %}">Home</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a
+      class="nav-link dropdown-toggle active"
+      data-toggle="dropdown"
+      href="#"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false"
+      >Serviços</a
+    >
+    <div class="dropdown-menu active">
+      <a class="dropdown-item" href="{% url "core_lista_pessoas" %}">Lista de Clientes</a>
+      <a class="dropdown-item " href="{% url "core_lista_veiculos" %}">Lista de Veiculos</a>
+      <a class="dropdown-item active" href="{% url "core_lista_movrot" %}">Movimento Rotativo</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+{% endblock menu %} 
+
+
+<!-------------------------------Lista Mov Rotativo-->
+{% block main %} 
 <h2>Lista de Movimentos Rotativos</h2>
 
 <ul>
@@ -11,7 +50,8 @@
 </ul>
 
 <form action="{% url 'core_novorotativo_movrot' %}" method="POST">
-  {% csrf_token %} {{ form.as_p }}
+  {% csrf_token %} {{ form|bootstrap }}
 
-  <button type="submit">Cadastrar</button>
+  <button class="btn btn-success" type="submit">Cadastrar</button>
 </form>
+{% endblock main %}
