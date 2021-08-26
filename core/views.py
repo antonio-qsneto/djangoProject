@@ -5,7 +5,8 @@ from .form import PessoaForm, VeiculoForm, MovRotativoForm
 
 
 def home(request):
-    return HttpResponse('ola mundo')
+    context = {"mensagem": "Olá mundo"}
+    return render(request, 'core/index.html', context)
 
 
 def lista_pessoas(request):
