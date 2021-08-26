@@ -36,9 +36,13 @@
 
 <!--------------------------updateRotativo------------------>
 {% block main %}
-<h2>Updating Movimento Rotativo: {{ mov_rotativo }}</h2>
+<h2 class="mb-5">Updating Movimento Rotativo: {{ mov_rotativo }}</h2>
 
-<form
+<div class="container">
+
+  <div class="row">
+    <div class="col-6 shadow-lg p-3 mb-5 bg-white rounded">
+       <form
   action="{% url 'core_movrotativos_update' mov_rotativo.id %}"
   method="POST"
 >
@@ -46,4 +50,11 @@
 
   <button class="btn btn-success" type="submit">Salvar</button>
 </form>
+    </div>
+  </div>
+
+ 
+</div>
+
+
 {% endblock main %}
