@@ -52,15 +52,31 @@
 
   <div class="col-6">
   <h2>Lista de Veiculos</h2>
-    <ul>
-      {% for veiculo in veiculos %}
-      <li>
-        <a href="{% url 'core_veiculo_update' veiculo.id %}">
+    <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Proprietario</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Placa</th>
+      <th scope="col">Cor</th>
+    </tr>
+  </thead>
+<tbody>
+    
+    {% for veiculo in veiculos %}
+    <tr>
+      <th scope="row"> {{veiculo.id}} </th>
+      <td> {{ veiculo.proprietario }} </td>
+      <td>{{ veiculo.marca }}</td>
+      <td><a href="{% url 'core_veiculo_update' veiculo.id %}">
           {{ veiculo.placa }}
-        </a>
-      </li>
+        </a></td>
+      <td>{{ veiculo.cor }}</td>
+      </tr>
       {% endfor %}
-    </ul>
+  </tbody>
+</table>
   </div>
 </div>
 {% endblock main %}

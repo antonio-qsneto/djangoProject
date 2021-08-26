@@ -42,6 +42,6 @@
 <form action="{% url 'core_veiculo_update' veiculo.id %}" method="POST">
   {% csrf_token %} {{ form|bootstrap_horizontal }}
 
-  <button class="btn btn-primary" type="submit">Cadastrar</button>
+  <button class="btn btn-primary" type="submit">Atualizar</button>
 </form>
 {% endblock main %}
