@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'bootstrapform',
+    'django_extensions',
 ]
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -120,6 +121,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+LOGIN_URL = 'core_home'
+LOGIN_REDIRECT_URL = 'core_home'
+LOGOUT_REDIRECT_URL = 'core_home'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

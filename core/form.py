@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from .models import Pessoa, Veiculo, MovRotativo
 
 
+
 class PessoaForm(ModelForm):
     class Meta:
         model = Pessoa
