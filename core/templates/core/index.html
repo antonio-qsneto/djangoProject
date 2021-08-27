@@ -3,50 +3,39 @@
 {% block menu %}
 <ul class="nav nav-tabs">
   <li class="nav-item">
-	<a class="nav-link active" href="{% url "core_home" %}">Home</a>
+    <a class="nav-link active" href="{% url "core_home" %}">Home</a>
   </li>
   <li class="nav-item dropdown">
-	<a
-	  class="nav-link dropdown-toggle"
-	  data-toggle="dropdown"
-	  href="#"
-	  role="button"
-	  aria-haspopup="true"
-	  aria-expanded="false"
-	  >Serviços</a
-	>
-	<div class="dropdown-menu">
-	  <a class="dropdown-item" href="{% url "core_lista_pessoas" %}">Lista de Clientes</a>
-	  <a class="dropdown-item" href="{% url "core_lista_veiculos" %}">Lista de Veiculos</a>
-	  <a class="dropdown-item" href="{% url "core_lista_movrot" %}">Movimento Rotativo</a>
-	  <div class="dropdown-divider"></div>
-	  <a class="dropdown-item" href="#">Separated link</a>
-	</div>
+    <a
+      class="nav-link dropdown-toggle"
+      data-toggle="dropdown"
+      href="#"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false"
+      >Serviços</a
+    >
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="{% url "core_lista_pessoas" %}">Lista de Clientes</a>
+      <a class="dropdown-item" href="{% url "core_lista_veiculos" %}">Lista de Veiculos</a>
+      <a class="dropdown-item" href="{% url "core_lista_movrot" %}">Movimento Rotativo</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
   </li>
-
-  {% if user.is_authenticated %}
-	<li class="nav-item">
-		<a class="nav-link disabled" href="">Ola {{ user }} </a>
-	</li>
-
-	<li class="nav-item">
-		<a class="nav-link" href=" {% url 'logout' %} ">Logout</a>
-	</li>
-  {% else %}
-	<li class="nav-item">
-	  <a class="nav-link" href=" {% url 'login' %} ">Login</a>
-	</li>
-
-  {% endif %}
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
 </ul>
 {% endblock menu %}
-
-
 {% block main %}
 
 <div class="row">
   <div class="col">
-	<h1>Seja bem-vindo</h1>
+    <h1>Seja bem-vindo</h1>
   </div>
 </div>
 

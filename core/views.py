@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Pessoa, Veiculo, MovRotativo
 from django.http import HttpResponse
 from .form import PessoaForm, VeiculoForm, MovRotativoForm
-from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -10,14 +9,12 @@ def home(request):
     return render(request, 'core/index.html', context)
 
 
-@login_required
 def lista_pessoas(request):
     pessoas = Pessoa.objects.all()
     form = PessoaForm()
     return render(request, 'core/lista_pessoas.html', {'pessoas': pessoas, 'form': form})
 
 
-@login_required
 def pessoa_novo(request):
     form = PessoaForm(request.POST or None)
     if form.is_valid():
@@ -25,7 +22,6 @@ def pessoa_novo(request):
     return redirect("core_lista_pessoas")
 
 
-@login_required
 def pessoa_delete(request, id):
     pessoa = Pessoa.objects.get(id=id)
     if request.method == 'POST':
@@ -35,7 +31,6 @@ def pessoa_delete(request, id):
         return render(request, 'core/delete_confirm.html', {'pessoa': pessoa})
 
 
-@login_required
 def lista_veiculos(request):
     veiculos = Veiculo.objects.all()
     form = VeiculoForm()
@@ -43,7 +38,6 @@ def lista_veiculos(request):
     return render(request, 'core/lista_veiculos.html', data)
 
 
-@login_required
 def veiculo_novo(request):
     form = VeiculoForm(request.POST or None)
     if form.is_valid():
@@ -51,7 +45,6 @@ def veiculo_novo(request):
     return redirect("core_lista_veiculos")
 
 
-@login_required
 def veiculo_update(request, id):
     data = {}
     veiculo = Veiculo.objects.get(id=id)
@@ -67,7 +60,6 @@ def veiculo_update(request, id):
         return render(request, 'core/update_veiculo.html', data)
 
 
-@login_required
 def listaMovRot(request):
     movrot = MovRotativo.objects.all()
     form = MovRotativoForm()
@@ -75,7 +67,6 @@ def listaMovRot(request):
     return render(request, 'core/lista_movRotativo.html', data)
 
 
-@login_required
 def movrotativo_novo(request):
     form = MovRotativoForm(request.POST or None)
     if form.is_valid():
@@ -83,7 +74,6 @@ def movrotativo_novo(request):
     return redirect("core_lista_movrot")
 
 
-@login_required
 def movrotativos_update(request, id):
     data = {}
     mov_rotativo = MovRotativo.objects.get(id=id)
