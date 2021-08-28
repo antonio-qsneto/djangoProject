@@ -25,6 +25,7 @@ def pessoa_novo(request):
     return redirect("core_lista_pessoas")
 
 
+
 @login_required
 def pessoa_delete(request, id):
     pessoa = Pessoa.objects.get(id=id)
@@ -33,6 +34,7 @@ def pessoa_delete(request, id):
         return redirect('core_lista_pessoas')
     else:
         return render(request, 'core/delete_confirm.html', {'pessoa': pessoa})
+
 
 
 @login_required
